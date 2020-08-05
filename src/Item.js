@@ -36,6 +36,16 @@ class Item extends Component{
         this.props.onupdaterating({id: this.state.id, title: this.state.title, image:this.state.image, rating:rating})
     }
 
+    onRemove = e  => {
+        this.props.onremove(this.props.id);
+
+    }
+
+    // onRemove(e){
+    //     console.log(this.props.id);
+    //     this.props.onremove(this.props.id);
+    // }   
+
     render(){
         return(
             <div className="item">
@@ -59,7 +69,7 @@ class Item extends Component{
                 </div>
     
                 <div className="actions">
-                    <button>Eliminar</button>
+                    <button onClick={this.onRemove}>Eliminar</button>
                 </div>
             </div>
         );

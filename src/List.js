@@ -16,7 +16,10 @@ function List(props){
                     rating={item.rating}
                     image={item.image}
                     
-                    onupdaterating = {props.onupdaterating}></Item>
+                    onupdaterating = {props.onupdaterating}
+                    
+                    onremove = {props.onremove} />
+                        
                 )
             }
         </div>

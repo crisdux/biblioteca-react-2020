@@ -25,7 +25,6 @@ class Menu extends React.Component{
     }
 
     onCancel = (e) => {
-        e.preventDefault();
         
         this.setState({
             newItemPanel:false
@@ -50,7 +49,7 @@ class Menu extends React.Component{
                 </div>
 
                 {
-                    (this.state.newItemPanel) ?  <PanelAdd oncancel={this.onCancel}/> : ''
+                    (this.state.newItemPanel) ?  <PanelAdd oncancel={this.onCancel} onadd={this.props.onadd}/> : ''
                 }
     
                 

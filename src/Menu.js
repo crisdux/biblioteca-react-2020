@@ -2,29 +2,62 @@ import React from 'react';
 
 // importar componentes 
 import Seach from './Seach';
+import PanelAdd from './PanelAdd';
 
 //importar estilos
 import './Menu.css';
 
-function Menu(props){
-    return(
-        <div className="container">
-            <div className="subcontainer">
-                <div className="logo">
-                    {props.title}
+class Menu extends React.Component{
+
+    constructor(props){
+        super(props);
+
+        this.state = {
+            newItemPanel: false
+        };
+    }
+
+    addBook = () => {
+
+        this.setState({
+            newItemPanel:true
+        })
+    }
+
+    onCancel = (e) => {
+        e.preventDefault();
+        
+        this.setState({
+            newItemPanel:false
+        })
+    }
+
+    render(){
+        return(
+            <div className="container">
+                <div className="subcontainer">
+                    <div className="logo">
+                        {this.props.title}
+                    </div>
+    
+                    <div className="search">
+                        <Seach></Seach>
+                    </div>
+    
+                    <div className="accions">
+                        <button onClick={this.addBook}className="button btn-blue">Add book</button>
+                    </div>
                 </div>
 
-                <div className="search">
-                    <Seach></Seach>
-                </div>
-
-                <div className="accions">
-                    <button className="button btn-blue">Add book</button>
-                </div>
+                {
+                    (this.state.newItemPanel) ?  <PanelAdd oncancel={this.onCancel}/> : ''
+                }
+    
+                
+    
             </div>
-
-        </div>
-    );
+        );
+    }
 }
 
 export default Menu;

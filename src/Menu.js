@@ -1,7 +1,7 @@
 import React from 'react';
 
 // importar componentes 
-import Seach from './Seach';
+import Search from './Search';
 import PanelAdd from './PanelAdd';
 
 //importar estilos
@@ -40,7 +40,7 @@ class Menu extends React.Component{
                     </div>
     
                     <div className="search">
-                        <Seach></Seach>
+                         <Search onsearch ={this.props.onsearch} />  
                     </div>
     
                     <div className="accions">

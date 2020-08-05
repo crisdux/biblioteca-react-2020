@@ -34,7 +34,7 @@ class App extends React.Component {
   onAdd = (item) => {
       console.log(item);
       let temp  = [...this.state.books];
-      const id  = temp[temp.length-1].id ++;
+      const id  = temp[temp.length-1].id +1 ;
       item['id'] = id;
       temp.push(item);
       this.setState({books : [...temp]});
@@ -58,6 +58,18 @@ class App extends React.Component {
     }
   }
 
+  onUpdateRating = (item) =>{
+    let temp = [...this.state.books];
+    const index  = temp.findIndex(x => x.id === item.id);
+
+    temp[index].title = item.title;
+    temp[index].image = item.image;
+    temp[index].rating = item.rating;
+
+    this.setState({books : [...temp]});
+    this.initBooks();
+  }
+
   render(){
     return (
       <div className="app">
@@ -66,7 +78,7 @@ class App extends React.Component {
           onadd = {this.onAdd}
           onsearch = {this.onSearch}>
         </Menu>
-        <List items = {this.state.copyBooks}></List>
+        <List items = {this.state.copyBooks} onupdaterating ={this.onUpdateRating}></List>
       </div>
     );
   }

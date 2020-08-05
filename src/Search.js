@@ -4,11 +4,7 @@ class Search extends Component{
 
     constructor(props){
         super(props);
-
-        
     }
-
- 
 
     onChangeEvent = e => {
         const query = e.target.value.toString().toLowerCase();
